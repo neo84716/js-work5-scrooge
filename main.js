@@ -97,10 +97,11 @@ const searchBtn = document.getElementById('search');
 const dropdownItems = document.querySelectorAll('.search-menu .dropdown-item');
 const noFound = document.querySelector('.no_found');
 const searchNum = document.querySelector('#searchNum');
-searchNum.textContent = colItems.length;
+
 
 function search(selected) {
     const colItems = document.querySelectorAll('.col-4');
+    searchNum.textContent = colItems.length;
     let count = 0;
     let anyVisible = false;
     colItems.forEach(col => {
