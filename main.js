@@ -159,4 +159,10 @@ form.addEventListener('submit', function (e) {
 
     console.log(data);
     init();
+    document.getElementById('imgName').value = "";
+    document.getElementById('imgUrl').value = "";
+    document.getElementById('tickerPrice').value = "";
+    document.getElementById('tickerGroup').value = "";
+    document.getElementById('tickerRate').value = "";
+    document.getElementById('tickerDescription').value = "";
 });
