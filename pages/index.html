@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>index</title>
+</head>
+
+<body>
+  <section class="py-11 d-flex justify-content-center">
+    <div class="py-65 px-110 d-flex rounded-6 shadow">
+
+      <div class="d-flex flex-column me-5">
+        <img class="mb-4" src="/assets/images/main_img.png" alt="main_img" width="416" height="298">
+        <img src="/assets/images/logo.png" alt="logo" width="416" height="235">
+      </div>
+
+      <div style="width: 416px;">
+        <div class="title-line d-flex align-items-center mb-6">
+          <div class="me-1 d-flex justify-content-center align-items-center" style="width: 24px;height: 24px;">
+            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11 5.5H9V9.5H5V11.5H9V15.5H11V11.5H15V9.5H11V5.5ZM10 0.5C4.48 0.5 0 4.98 0 10.5C0 16.02 4.48 20.5 10 20.5C15.52 20.5 20 16.02 20 10.5C20 4.98 15.52 0.5 10 0.5ZM10 18.5C5.59 18.5 2 14.91 2 10.5C2 6.09 5.59 2.5 10 2.5C14.41 2.5 18 6.09 18 10.5C18 14.91 14.41 18.5 10 18.5Z"
+                fill="#00807E" />
+            </svg>
+          </div>
+          <h2 class="fs-4 text-primary-400 fw-bold">新增旅遊套票</h2>
+        </div>
+        <div class="d-flex align-items-center mb-4">
+          <label class="fw-medium text-primary-400 me-5 text-nowrap">套票名稱</label>
+          <input class="input-custom w-100" type="text" placeholder="請填寫圖片名稱">
+        </div>
+        <div class="d-flex align-items-center mb-4">
+          <label class="fw-medium text-primary-400 me-5 text-nowrap">圖片網址</label>
+          <input class="input-custom w-100" type="text" placeholder="請填寫圖片網址">
+        </div>
+        <div class="dropdown w-100 d-flex align-items-center mb-4">
+          <label class="fw-medium text-primary-400 me-5 text-nowrap">景點地區</label>
+          <button id="location" class="select-custom w-100 d-flex justify-content-between align-items-center" type="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            請選擇景點地區
+            <img class="me-3" src="/assets/images/click.svg" width="24">
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end location-menu border border-neutral-600 rounded-1">
+            <li><a class="dropdown-item" href="#">台北</a></li>
+            <li><a class="dropdown-item" href="#">台中</a></li>
+            <li><a class="dropdown-item" href="#">高雄</a></li>
+          </ul>
+        </div>
+        <div class="d-flex align-items-center mb-4">
+          <label class="fw-medium text-primary-400 me-5 text-nowrap">套票金額</label>
+          <input class="input-custom w-100" type="number" placeholder="請填寫套票金額" min="0">
+        </div>
+        <div class="d-flex align-items-center mb-4">
+          <label class="fw-medium text-primary-400 me-5 text-nowrap">套票組數</label>
+          <input class="input-custom w-100" type="number" placeholder="請填寫套票組數" min="0">
+        </div>
+        <div class="d-flex align-items-center mb-4">
+          <label class="fw-medium text-primary-400 me-5 text-nowrap">套票星級</label>
+          <input class="input-custom w-100" type="number" placeholder="請填寫套票星級" min="1" max="10">
+        </div>
+        <div class="d-flex align-items-center mb-5">
+          <label class="fw-medium text-primary-400 me-5 text-nowrap align-self-start">套票描述</label>
+          <textarea class="input-custom w-100" placeholder="請填寫套票描述（限 100 字）" rows="4" maxlength="100"></textarea>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn-custom">新增套票</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-93 bg-background">
+    <div class="container">
+      <div class="d-flex align-items-center mb-36">
+        <div class="dropdown d-flex align-items-center me-5">
+          <button id="search" class="search-custom d-flex justify-content-between align-items-center" type="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            地區搜尋
+            <img class="me-3" src="/assets/images/click.svg" width="24">
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end search-menu border border-neutral-600 rounded-1">
+            <li><a class="dropdown-item" href="#">全部地區</a></li>
+            <li><a class="dropdown-item" href="#">台北</a></li>
+            <li><a class="dropdown-item" href="#">台中</a></li>
+            <li><a class="dropdown-item" href="#">高雄</a></li>
+          </ul>
+        </div>
+        <label class="text-neutral-500">本次搜尋共 <span id="searchNum">6</span> 筆資料</label>
+      </div>
+      <div class="list row gy-36 mb-5">
+        <!-- <div class="col-4">
+          <div class="card rounded-1 shadow" style="height:529px;">
+            <div class="position-relative">
+              <div class="location-tag">台東</div>
+              <div class="score-tag">8.6</div>
+              <img src="/assets/images/travel_1.png" class="card-img-top" alt="travel_1">
+            </div>
+            <div class="card-body py-5 px-20">
+              <h5 class="card-title card-title-line text-primary-400 mb-4 fs-4 fw-medium">綠島自由行套裝行程</h5>
+              <p class="card-text mb-5 text-neutral-600">
+                嚴選超高CP值綠島自由行套裝行程，多種綠島套裝組合，提供台東綠島來回船票、綠島環島機車、綠島民宿住宿，行程加贈『綠島浮潛體驗』以及『綠島生態導覽』，讓你用輕鬆的綠島套裝自由行，也能深度認識綠島在地文化。
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                  <div style="width: 24px;height: 24px;" class="d-flex justify-content-center align-items-center me-1">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM11 15H9V13H11V15ZM11 11H9V5H11V11Z"
+                        fill="#00807E" />
+                    </svg>
+
+                  </div>
+                  <p class="fw-medium text-primary-400">剩下最後 8 組</p>
+                </div>
+                <div class="d-flex align-items-center">
+                  <p class="text-primary-400 me-1 fw-medium">TWD</p>
+                  <P class="text-primary-400 fw-medium fs-2">$1,280</P>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card rounded-1 shadow" style="height:529px;">
+            <div class="position-relative">
+              <div class="location-tag">南投</div>
+              <div class="score-tag">8.2</div>
+              <img src="/assets/images/travel_2.png" class="card-img-top" alt="travel_2">
+            </div>
+            <div class="card-body py-5 px-20">
+              <h5 class="card-title card-title-line text-primary-400 mb-4 fs-4 fw-medium">清境高空觀景步道二日遊</h5>
+              <p class="card-text mb-5 text-neutral-600">
+                清境農場青青草原數十公頃碧草，餵食著數以百計的綿羊和牛群，中央山脈最高的北三段群峰形成一堵如帶的高牆，攔住清晨的薄霧山嵐，成就了從花蓮翻山而來的雲瀑在濁水溪谷積成雲海，這些景觀豐沛了清境觀景步道的風格，也涵養它無可取代的特色。
+              </p>
+            </div>
+            <div class="px-20 pb-5">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                  <div style="width: 24px;height: 24px;" class="d-flex justify-content-center align-items-center me-1">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM11 15H9V13H11V15ZM11 11H9V5H11V11Z"
+                        fill="#00807E" />
+                    </svg>
+                  </div>
+                  <p class="fw-medium text-primary-400">剩下最後 12 組</p>
+                </div>
+                <div class="d-flex align-items-center">
+                  <p class="text-primary-400 me-1 fw-medium">TWD</p>
+                  <P class="text-primary-400 fw-medium fs-2">$2,580</P>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card rounded-1 shadow" style="height:529px;">
+            <div class="position-relative">
+              <div class="location-tag">台中</div>
+              <div class="score-tag">9.6</div>
+              <img src="/assets/images/travel_3.png" class="card-img-top" alt="travel_3">
+            </div>
+            <div class="card-body py-5 px-20">
+              <h5 class="card-title card-title-line text-primary-400 mb-4 fs-4 fw-medium">南庄度假村露營車二日遊</h5>
+              <p class="card-text mb-5 text-neutral-600">南庄雲水豪華露營車，擁有最愜意的露營體驗吧！
+                一泊一食，輕鬆享受露營車樂趣。獨立衛浴與私人戶外露臺。入住豪華露營車還能使用戶外SPA大眾湯，感受美人湯魅力。</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                  <div style="width: 24px;height: 24px;" class="d-flex justify-content-center align-items-center me-1">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM11 15H9V13H11V15ZM11 11H9V5H11V11Z"
+                        fill="#00807E" />
+                    </svg>
+
+                  </div>
+                  <p class="fw-medium text-primary-400">剩下最後 2 組</p>
+                </div>
+                <div class="d-flex align-items-center">
+                  <p class="text-primary-400 me-1 fw-medium">TWD</p>
+                  <P class="text-primary-400 fw-medium fs-2">$1,280</P>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card rounded-1 shadow" style="height:529px;">
+            <div class="position-relative">
+              <div class="location-tag">台中</div>
+              <div class="score-tag">8.6</div>
+              <img src="/assets/images/travel_1.png" class="card-img-top" alt="travel_1">
+            </div>
+            <div class="card-body py-5 px-20">
+              <h5 class="card-title card-title-line text-primary-400 mb-4 fs-4 fw-medium">山林悠遊雙人套票</h5>
+              <p class="card-text mb-5 text-neutral-600">
+                山林悠遊套票，結合南投清境高空步道、雙龍瀑布七彩吊橋、瑞龍瀑布園區之熱門景點，帶您飽覽南投瑰麗的自然環境，體驗變化無窮的地形景觀，喜歡挑戰高空的您一定不可錯過。<br>（含雙龍瀑布入場券 x2）</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                  <div style="width: 24px;height: 24px;" class="d-flex justify-content-center align-items-center me-1">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM11 15H9V13H11V15ZM11 11H9V5H11V11Z"
+                        fill="#00807E" />
+                    </svg>
+
+                  </div>
+                  <p class="fw-medium text-primary-400">剩下最後 10 組</p>
+                </div>
+                <div class="d-flex align-items-center">
+                  <p class="text-primary-400 me-1 fw-medium">TWD</p>
+                  <P class="text-primary-400 fw-medium fs-2">$880</P>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card rounded-1 shadow" style="height:529px;">
+            <div class="position-relative">
+              <div class="location-tag">台中</div>
+              <div class="score-tag">8.6</div>
+              <img src="/assets/images/travel_1.png" class="card-img-top" alt="travel_1">
+            </div>
+            <div class="card-body py-5 px-20">
+              <h5 class="card-title card-title-line text-primary-400 mb-4 fs-4 fw-medium">漁樂碼頭釣魚體驗套票</h5>
+              <p class="card-text mb-5 text-neutral-600">
+                台中全新親子景點寶熊漁樂碼頭，為知名釣具公司「OKUMA」所創立的觀光工廠。一樓藍白希臘漁村風商店街免費參觀。二樓釣魚故事館則設立全台唯一虛擬釣場，透過導覽讓你知道如何釣魚、魚餌怎麼區分，寓教於樂的台中景點！
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                  <div style="width: 24px;height: 24px;" class="d-flex justify-content-center align-items-center me-1">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM11 15H9V13H11V15ZM11 11H9V5H11V11Z"
+                        fill="#00807E" />
+                    </svg>
+
+                  </div>
+                  <p class="fw-medium text-primary-400">剩下最後 5 組</p>
+                </div>
+                <div class="d-flex align-items-center">
+                  <p class="text-primary-400 me-1 fw-medium">TWD</p>
+                  <P class="text-primary-400 fw-medium fs-2">$1,280</P>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="card rounded-1 shadow" style="height:529px;">
+            <div class="position-relative">
+              <div class="location-tag">高雄</div>
+              <div class="score-tag">8.6</div>
+              <img src="/assets/images/travel_1.png" class="card-img-top" alt="travel_1">
+            </div>
+            <div class="card-body py-5 px-20">
+              <h5 class="card-title card-title-line text-primary-400 mb-4 fs-4 fw-medium">熊森公園親子二日遊套票</h5>
+              <p class="card-text mb-5 text-neutral-600">來自日本最受歡迎的兒童遊樂園《 BearSon Park
+                熊森公園》於全世界有800多家據點，在全世界、日本及台灣，很多小孩的童年都在遊戲愛樂園裡一同成長，提供兒童一個最富教育性及娛樂性的休憩遊樂天地！</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                  <div style="width: 24px;height: 24px;" class="d-flex justify-content-center align-items-center me-1">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM11 15H9V13H11V15ZM11 11H9V5H11V11Z"
+                        fill="#00807E" />
+                    </svg>
+                  </div>
+                  <p class="fw-medium text-primary-400">剩下最後 3 組</p>
+                </div>
+                <div class="d-flex align-items-center">
+                  <p class="text-primary-400 me-1 fw-medium">TWD</p>
+                  <P class="text-primary-400 fw-medium fs-2">$2,480</P>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <div class="no_found d-flex align-items-center flex-column justify-content-center">
+        <h2 class="mb-8 text-primary-400 fw-bold">查無資料</h2>
+        <img src="/assets/images/no_found.png" alt="no_found">
+      </div>
+    </div>
+  </section>
+  <script type="module" src="../main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+.btn-custom{
+    background-color: $primary-400;
+    padding: 8px 40px;
+    font-size: 20px;
+    color: #ffffff;
+    border-radius: 4px;
+    border: 0;
+    &:hover{
+        background-color: $primary-500;
+    }
+}
