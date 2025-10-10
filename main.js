@@ -34,13 +34,13 @@ let data = [
     }
 ];
 
-function init(){
+function init() {
     const list = document.querySelector(".list");
     let str = "";
-    data.forEach(function(item,index){
-        let priceFormatted = Number(item.price).toLocaleString(); 
-        let content = 
-        `
+    data.forEach(function (item, index) {
+        let priceFormatted = Number(item.price).toLocaleString();
+        let content =
+            `
         <div id="${item.id}" class="col-4">
             <div class="card rounded-1 shadow" style="height:529px;">
                 <div class="position-relative">
@@ -76,7 +76,7 @@ function init(){
         </div>
         `
         str += content;
-    
+
     });
     list.innerHTML = str;
 }
@@ -86,13 +86,13 @@ init();
 // 景點地區
 document.querySelectorAll('.location-menu .dropdown-item').forEach(item => {
     item.addEventListener('click', e => {
-        e.preventDefault(); 
+        e.preventDefault();
         const btn = document.getElementById('location');
         btn.childNodes[0].textContent = item.textContent;
     });
 });
 
-// 搜尋功能
+// 篩選功能
 const searchBtn = document.getElementById('search');
 const dropdownItems = document.querySelectorAll('.search-menu .dropdown-item');
 const noFound = document.querySelector('.no_found');
@@ -129,4 +129,34 @@ dropdownItems.forEach(item => {
         const selected = item.textContent.trim();
         search(selected);
     });
+});
+
+
+const form = document.getElementById('addTicket');
+
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const imgName = document.getElementById('imgName').value;
+    const imgUrl = document.getElementById('imgUrl').value;
+    const location = document.getElementById('location').textContent.trim();
+    const tickerPrice = document.getElementById('tickerPrice').value;
+    const tickerGroup = document.getElementById('tickerGroup').value;
+    const tickerRate = document.getElementById('tickerRate').value;
+    const tickerDescription = document.getElementById('tickerDescription').value;
+    let dataNum = data.length;
+    let new_id = dataNum + 1;
+    // 只加入 data
+    data.push({
+        id: new_id,
+        name: imgName,
+        imgUrl,
+        area: location,
+        description: tickerDescription,
+        group: tickerGroup,
+        price: tickerPrice,
+        rate: tickerRate
+    });
+
+    console.log(data);
+    init();
 });
